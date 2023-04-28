@@ -1,6 +1,6 @@
 
 from my_head import Head_info as head
-from estilo_Arq import  Info_Alunos
+from info_alunos import  Info_Alunos
 
 def save(html):
     with open('save.html', 'w+') as arquivo:
