@@ -1,4 +1,3 @@
-from my_head import Head_info as head
 import pandas as pd
 
 
@@ -15,7 +14,7 @@ class Info_Alunos():
         planilha3 = None
         #Filtrar Por Ano
         if str(self.a_if['Ano']).lower() != 'all':
-            planilha2 = planilha[planilha['Ano']==5]
+            planilha2 = planilha[planilha['Ano']==self.a_if['Ano']]
         else:
             planilha2 = planilha[planilha['Ano']!='a']
         del(planilha)#tirar da memória
@@ -58,22 +57,4 @@ class Info_Alunos():
         return html
 
 
-
-def save(html):
-    with open('save.html', 'w+') as arquivo:
-        arquivo.write(html)
-
-
-if __name__ == "__main__":
-    head_info = ['utf-8','-t:Lista de Alunos','css','js']
-    aluno_info= {'Ano':5,'Turma':'ALL'}
-    titulo_da_pagina = "Alunos de ADS do 5 Periodo"
-
-
-    htmlEND = "<!DOCTYPE html><html>" #HTML
-    html,rotas =head(head_info).main() # Main
-    html += Info_Alunos(aluno_info,titulo_da_pagina).main() #Body
-    htmlEND +=html+"</html>" #ENDHTML
-    print(htmlEND)
-    save(htmlEND)
 
